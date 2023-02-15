@@ -4,7 +4,7 @@ import ColorfullMessage from "./components/ColorfullMessage";
 const App = () => {
   // 通過するよ
   console.log("通過①");
-  const onClickButton = () => alert();
+  // const onClickButton = () => alert();
   // const contentStyle = {
   //   color: "blue",
   //   Fontsize: "18px"
@@ -17,11 +17,20 @@ const App = () => {
     setNum(num + 1);
   };
 
+  const onClickCountDown = () => {
+    setNum(num - 1);
+  };
+
   const [num, setNum] = useState(0);
   const [faseShowFlag, setfaseShowFlag] = useState(false);
 
   const onClickshitchShowFlag = () => {
     setfaseShowFlag(!faseShowFlag);
+  };
+
+  const onClickreset = () => {
+    setNum(0);
+    setfaseShowFlag(false);
   };
   // 3の倍数だけ表示
   useEffect(() => {
@@ -71,7 +80,11 @@ const App = () => {
       {/* <button onClick={onClickButton}>ボタン</button> */}
       <button onClick={onClickCountUp}>カウントアップ</button>
       <br />
+      <button onClick={onClickCountDown}>カウントダウン</button>
+      <br />
       <button onClick={onClickshitchShowFlag}>on/off</button>
+      <br />
+      <button onClick={onClickreset}>リセット</button>
       <p>{num}</p>
       {faseShowFlag && <p>(^_-)-☆</p>}
     </>
